@@ -49,16 +49,19 @@
 	<h1>welcome to worlde cheat!</h1>
 	<h2>length</h2>
 	<input bind:value={length} 
-		placeholder="enter wordle length"
+		placeholder="length"
 		on:change={handleChange}>
-	<h2>greens</h2>
-	<input bind:value={greens} placeholder="enter greens, _ for non determined" on:change={handleChange}>
+	<h2>greens, - for non determined</h2>
+	<input bind:value={greens} placeholder="greens" on:change={handleChange}>
 	<h2>yellows</h2>
-	<input bind:value={yellows} placeholder="enter yellows" on:change={handleChange}>
+	<input bind:value={yellows} placeholder="yellows" on:change={handleChange}>
 	<h2>blacks</h2>
-	<input bind:value={blacks} placeholder="enter blacks" on:change={handleChange}>
-
+	<input bind:value={blacks} placeholder="blacks" on:change={handleChange}>
+	<h2>candidates</h2>
 	<p>{filtered}</p>
+
+	<a href="https://github.com/evoka/wordlecheat">CODE</a>
+
 		
 </main>
 
@@ -73,7 +76,7 @@
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
-		font-size: 4em;
+		font-size: 2em;
 		font-weight: 100;
 	}
 
