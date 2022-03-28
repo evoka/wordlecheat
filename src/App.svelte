@@ -47,6 +47,9 @@
 
 <main>
 	<h1>welcome to worlde cheat!</h1>
+	<input type="button"
+	value="search"	
+		on:submit={handleChange}>
 	<h2>length</h2>
 	<input bind:value={length} 
 		placeholder="length"
