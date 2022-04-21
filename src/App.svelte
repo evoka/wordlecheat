@@ -1,7 +1,12 @@
 <script>
 	import { wordsList } from './dict.js';
+	import { citiesList } from './citydict.js';
 	var words = wordsList();
+	var cities = citiesList();
+	cities = cities.map(city => city.toLowerCase().split(',')[0].replace(' ',''));
+
 	words = words.map(name => name.toLowerCase());
+	words = words.concat(cities);
 
 
 	let length='';
