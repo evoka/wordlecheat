@@ -1,5 +1,4 @@
-let candi = `
-les Escaldes,Andorra,Escaldes-Engordany,3040051
+let candi = `les Escaldes,Andorra,Escaldes-Engordany,3040051
 Andorra la Vella,Andorra,Andorra la Vella,3041563
 Umm al Qaywayn,United Arab Emirates,Umm al Qaywayn,290594
 Ras al-Khaimah,United Arab Emirates,Raʼs al Khaymah,291074
