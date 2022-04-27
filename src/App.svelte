@@ -1,18 +1,15 @@
 <script>
 	import { wordsList } from './dict.js';
 	import { citiesList } from './citydict.js';
-	import { nameList } from './namedict.js';
+	import { nameList } from './firstname.js';
 
 	var words = wordsList();
 	var cities = citiesList();
 	var names = nameList();
 
 	cities = cities.map(city => city.toLowerCase().split(',')[0].replace(' ',''));
-	names = names.map(name => name.toLowerCase().split(';')[0].replace(' ',''));
-
+	names = names.map(name => name.toLowerCase().split(';')[0].replace(' ','').replace('+',''));
 	words = words.map(name => name.toLowerCase());
-	words = words.concat(cities);
-	words = words.concat(names);
 
 
 	let length='';
@@ -20,10 +17,12 @@
 	let yellows='';
 	let blacks='';
 
-	var filtered;
+	var candi_words='';
+	var candi_cities='';
+	var candi_names='';
 
-	const handleChange = () => {
-		filtered = words.filter(word => word.length == parseInt(length));
+	const filtering = (words) => {
+		var filtered = words.filter(word => word.length == parseInt(length));
 		filtered = filtered.filter(word => {
 			for (var i = 0; i < greens.length; i++) {
 				if ('a'<=greens.charAt(i) && greens.charAt(i)<='z')
@@ -51,6 +50,13 @@
 			}
 			return true;
 		});
+		return filtered;	
+	};
+
+	const handleChange = () => {
+		candi_words = filtering(words);
+		candi_names = filtering(names);
+		candi_cities = filtering(cities);
 	};
 
 
@@ -71,8 +77,12 @@
 	<input bind:value={yellows} placeholder="yellows" on:change={handleChange}>
 	<h2>blacks</h2>
 	<input bind:value={blacks} placeholder="blacks" on:change={handleChange}>
-	<h2>candidates</h2>
-	<p>{filtered}</p>
+	<h2>words candidates</h2>
+	<p>{candi_words}</p>
+	<h2>cities candidates</h2>
+	<p>{candi_cities}</p>
+	<h2>names candidates</h2>
+	<p>{candi_names}</p>
 
 	<a href="https://github.com/evoka/wordlecheat">CODE</a>
 
